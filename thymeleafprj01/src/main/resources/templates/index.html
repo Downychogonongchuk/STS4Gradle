@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Thymeleaf page</h1>
+<p th:text="${id}"></p>
+
+<h1>"It's hard knock life for us ~ !"</h1>
+<h1>"It's hard knock life for us !!"</h1>
+
+<a th:href="@{second}">[두번째]</a>
+<a href="action,href에서는 th 미사용 무방">[무방]</a>
+
+</body>
+</html>
