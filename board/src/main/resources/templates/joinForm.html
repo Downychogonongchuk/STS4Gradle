@@ -82,10 +82,10 @@
     			if(res == "ok"){
     				alert("사용 가능한 아이디입니다.");
     				ck = true;
-    			}else {
+    			} else {
     				alert("중복된 아이디입니다.");
     				ck = false;
-    				$("#mid").val(""); //아이디 지우기
+    				$("#mid").val("");//아이디 지우기
     				$("#mid").focus();
     			}
     		},
@@ -97,57 +97,30 @@
     }
     
     function check(){
-    	//아이디 중복 체크 여부 확인
+    	//id 중복체크 여부 확인
     	if(ck == false){
     		alert("아이디 중복 확인을 해주세요.");
     		return false;
     	}
     	
-    	//form 태그의 내용 가져오기 // form 태그의 name
+    	//form 태그의 내용 가져오기
     	const jfrm = document.jForm;
     	console.log(jfrm);
     	
-    	let length = jfrm.length -1;
+    	let length = jfrm.length - 1;
     	
-    	for(let i =0; i < length; i++){
+    	for(let i = 0; i < length; i++){
     		if(jfrm[i].value == "" || jfrm[i] == null){
     			alert(`${jfrm[i].title} 입력!`);
     			jfrm[i].focus();
     			return false;
-    		}	
+    		}
     	}
     	
     	return true;
     }
 </script>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

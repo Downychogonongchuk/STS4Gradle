@@ -21,5 +21,7 @@ public class BoardRestController {
 		String res = mServ.idCheck(mid);
 		return res;
 	}
-	
 }
+
+
+
