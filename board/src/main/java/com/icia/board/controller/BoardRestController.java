@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.icia.board.dto.MemberDto;
+import com.icia.board.dto.ReplyDto;
+import com.icia.board.service.BoardService;
 import com.icia.board.service.MailService;
 import com.icia.board.service.MemberService;
 
@@ -22,6 +24,9 @@ public class BoardRestController {
 	@Autowired
 	private MailService mailServ;
 	
+	@Autowired
+	private BoardService bServ;
+	
 	@GetMapping("idCheck")
 	public String idCheck(@RequestParam("mid") String mid) {
 		log.info("idCheck()");
@@ -36,9 +41,28 @@ public class BoardRestController {
 		return res;
 	}
 	
+	@PostMapping("codeAuth")
+	public String codeAuth(@RequestParam("v_code") String v_code,
+						   HttpSession session) {
+		log.info("codeAuth()");
+		String res = mailServ.codeAuth(v_code, session);
+		return res;
+	}
 	
-	
-}// class end
+	@PostMapping("replyInsert")
+	public ReplyDto replyInsert(ReplyDto reply) {
+		log.info("replyInsert()");
+		reply = bServ.replyInsert(reply);
+		
+		return reply;
+	}
+}//class end
+
+
+
+
+
+
 
 
 
